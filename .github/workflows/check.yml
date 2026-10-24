@@ -1,0 +1,33 @@
+name: Checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - name: Frontend tests
+        run: node --test test_dashboard.js
+      - name: Build image
+        run: docker build -t mastodon-stats:ci .
+      - name: Python tests in the deployment image
+        run: >-
+          docker run --rm
+          -v "$PWD/test_poll.py:/app/test_poll.py:ro"
+          --entrypoint /usr/local/bin/python
+          mastodon-stats:ci -m unittest -v
+      - name: Validate nginx configuration
+        run: docker run --rm mastodon-stats:ci nginx -t

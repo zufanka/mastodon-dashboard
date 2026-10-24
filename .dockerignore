@@ -1,0 +1,6 @@
+**
+!Dockerfile
+!.dockerignore
+!poll.py
+!dashboard.html
+!nginx.conf

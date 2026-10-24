@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Mastodon · Find your rhythm</title>
+<link rel="icon" href="data:,">
+<style>
+:root{--paper:#f5f4ef;--ink:#213d39;--muted:#677871;--line:#d9dfd7;--teal:#287768;--purple:#8170a2;--orange:#bd8050}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.5 system-ui,sans-serif}main{max-width:1100px;padding:38px 32px;margin:auto}a{color:inherit}.eyebrow,.kicker{font-size:10px;font-weight:750;letter-spacing:.15em;text-transform:uppercase;color:var(--teal)}header{display:flex;justify-content:space-between;align-items:end;gap:24px;margin:22px 0 28px}h1{font:52px/1.1 Georgia,serif;letter-spacing:-.045em;margin:0 0 10px}header p{margin:0;color:var(--muted)}.snapshot{font-size:11px;color:var(--muted);text-align:right;flex-shrink:0}.snapshot strong{display:block;color:var(--ink);font-weight:600}.sources{display:flex;justify-content:space-between;gap:12px;border-block:1px solid var(--line);padding:11px 0;color:var(--muted);font-size:11px}.panel{background:#fffefa;border:1px solid var(--line);border-radius:14px;margin-top:24px;padding:26px 30px}.panel-head{display:flex;justify-content:space-between;gap:20px;align-items:center}.panel h2{font:29px/1.2 Georgia,serif;letter-spacing:-.025em;margin:5px 0 8px}.subtitle{font-size:12px;color:var(--muted);margin:0}.pill{border:1px solid #e4d7be;background:#faf4e7;border-radius:20px;font-size:10px;color:#856336;padding:5px 10px;white-space:nowrap}.chart{width:100%;display:block;margin:20px 0 0;overflow:visible}.legend{display:flex;gap:20px;flex-wrap:wrap;font-size:11px;margin:12px 0 14px}.legend span{display:flex;align-items:center;gap:7px}.swatch{display:inline-block;width:17px;border-top:2px solid currentColor}.note{font-size:11px;color:var(--muted);margin:10px 0 0}.explain{border-top:1px solid var(--line);margin-top:18px;padding-top:12px;display:flex;gap:20px;justify-content:space-between}.explain p{flex:1}.column-head{display:grid;grid-template-columns:minmax(0,1fr) 330px 90px;gap:10px;margin-top:24px;padding-bottom:9px;border-bottom:1px solid var(--line);color:var(--muted);font-size:10px;letter-spacing:.05em;text-transform:uppercase}.column-head span:last-child{text-align:right}.tag{border-bottom:1px solid #e7ebe3}.tag:last-child{border-bottom:0}.tag>summary{list-style:none;display:grid;grid-template-columns:minmax(0,1fr) 330px 90px;align-items:center;gap:10px;min-height:55px;cursor:pointer}.tag>summary::-webkit-details-marker{display:none}.name{font-size:14px;font-weight:650;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.badges{display:flex;gap:5px;flex-wrap:wrap}.badge{border:1px solid var(--line);font-size:10px;border-radius:5px;padding:3px 6px;white-space:nowrap}.badge.ds{color:var(--teal);border-color:#cbdfd5;background:#eff6f0}.badge.jh{color:var(--purple);border-color:#e1d9eb;background:#f6f2f9}.badge.ms{color:#93623d;border-color:#eadacb;background:#fbf4ee}.open{color:var(--muted);font-size:11px;text-align:right}.open::after{content:' +'}.tag[open] .open{color:var(--teal)}.tag[open] .open::after{content:' −'}.tag-detail{background:#f6f7f1;border-radius:7px;padding:8px 15px;margin:0 0 14px}.detail-row{display:grid;grid-template-columns:1fr 110px 110px;align-items:center;gap:15px;min-height:36px;font-size:11px}.detail-row a{text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.detail-row a:hover{text-decoration:underline}.detail-row span:last-child{text-align:right}.spark{width:100px;height:24px;display:block}.footer{font-size:11px;color:var(--muted);margin:22px 0;display:flex;justify-content:space-between;gap:25px}.footer p{margin:0}.tag-detail p{font-size:10px;color:var(--muted);margin:6px 0}.error{background:#faf1e4;color:#815b2c;border-radius:6px;padding:9px 11px;font-size:11px;overflow-wrap:anywhere;margin:10px 0}.coverage{border-top:1px solid var(--line);margin-top:16px;padding-top:10px;font-size:11px;color:var(--muted)}.coverage summary{cursor:pointer}.coverage-row{display:flex;justify-content:space-between;gap:14px;padding-top:9px}.coverage-row span:last-child{text-align:right}.stale{color:#956324}.empty{padding:15px 0;color:var(--muted);font-size:13px}.more{font:inherit;font-size:11px;color:var(--teal);border:1px solid var(--line);border-radius:6px;padding:7px 11px;background:none;cursor:pointer;margin-top:12px}.point:focus{outline:2px solid var(--ink);outline-offset:3px}noscript{display:block;padding:20px;background:#faf1e4}
+@media(max-width:700px){main{padding:24px 16px}h1{font-size:40px}header{display:block}.snapshot{text-align:left;margin-top:16px}.sources{flex-direction:column;gap:4px}.panel{padding:20px 17px}.panel-head{align-items:start}.panel h2{font-size:25px}.column-head{grid-template-columns:1fr}.column-head span:not(:first-child){display:none}.tag>summary{grid-template-columns:minmax(0,1fr) 60px;gap:5px;padding:12px 0}.badges{grid-column:1;grid-row:2}.open{grid-column:2;grid-row:1 / 3}.badge{font-size:9px}.name{font-size:13px}.explain,.footer{display:block}.legend{gap:12px}.detail-row{grid-template-columns:minmax(0,1fr) 65px 70px;gap:6px}.spark{width:65px}.pill{font-size:9px}.explain p+p,.footer p+p{margin-top:8px}.coverage-row{flex-direction:column;gap:2px}.coverage-row span:last-child{text-align:left}}
+</style>
+</head>
+<body><main>
+<div class="eyebrow">Mastodon / A little field guide</div>
+<header><div><h1>Find your rhythm.</h1><p>When your communities are busy. What they’re talking about.</p></div><div class="snapshot"><strong id="snapshot-time"></strong><span id="snapshot-age"></span></div></header>
+<div class="sources"><span>Following the pulse of <b id="source-count"></b> · no accounts connected</span><span id="zone"></span></div>
+<section class="panel" aria-labelledby="activity-heading">
+<div class="panel-head"><div><div class="kicker">When to post</div><h2 id="activity-heading">Do their busy hours line up?</h2><p class="subtitle">One shared clock. Each community compared with its own observed average.</p></div><span class="pill" id="activity-state"></span></div>
+<div id="activity-errors"></div>
+<svg id="activity" class="chart" viewBox="0 0 920 220" role="group" aria-label="Relative posting activity by local hour of day; 1× is each server's observed average"></svg>
+<div class="legend" id="legend"></div>
+<div class="explain"><p class="note"><b>1× = that server’s observed average.</b> Compare timing, not server size.<br>Local posting includes boosts; it does not measure readers or predict engagement.</p><p class="note" id="activity-note"></p></div>
+<details class="coverage"><summary>Coverage &amp; source details</summary><div id="coverage"></div></details>
+</section>
+<section class="panel" aria-labelledby="trends-heading">
+<div class="panel-head"><div><div class="kicker">What to talk about</div><h2 id="trends-heading">Trending in your communities</h2><p class="subtitle">One list, no repeated tags. Shared trends first; expand for seven-day usage.</p></div></div>
+<div id="trends-errors"></div>
+<div class="column-head"><span>Hashtag</span><span>Trending on</span><span>7-day detail</span></div>
+<div id="tags"></div>
+<button type="button" class="more" id="more-tags" hidden aria-controls="tags" aria-expanded="false"></button>
+<p class="note" id="tag-note"></p>
+</section>
+<noscript>This dashboard needs JavaScript to draw its inline data. The page makes no network requests.</noscript>
+<div class="footer"><p>Public aggregates only · server counts overlap, so we never sum them into a global total.</p><p>15-minute snapshots · refresh the page after a new poll.</p></div>
+</main>
+<script id="dashboard-data" type="application/json">__DASHBOARD_DATA__</script>
+<script>
+'use strict';
+const data = JSON.parse(document.getElementById('dashboard-data').textContent);
+const colors = ['#287768','#8170a2','#bd8050'];
+const dashes = ['', '6 4', '2 4'];
+const badgeClasses = ['ds','jh','ms'];
+const numbers = new Intl.NumberFormat(undefined,{maximumFractionDigits:1});
+const ratesFormat = new Intl.NumberFormat(undefined,{maximumSignificantDigits:3});
+const integers = new Intl.NumberFormat();
+function element(tag,className,text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text !== undefined) node.textContent = text;
+  return node;
+}
+function svgElement(tag,attrs,text) {
+  const node = document.createElementNS('http://www.w3.org/2000/svg',tag);
+  for (const [key,value] of Object.entries(attrs)) node.setAttribute(key,value);
+  if (text !== undefined) node.textContent = text;
+  return node;
+}
+function activity(samples) {
+  const cells = Array.from({length:24}, () => ({posts:0, seconds:0}));
+  let rejected = 0, intervals = 0;
+  for (let i=1; i<samples.length; i++) {
+    const [previous, before] = samples[i-1];
+    const [current, after] = samples[i];
+    const duration = current - previous, delta = after - before;
+    if (duration <= 0 || duration > 1800 || delta < 0) { rejected++; continue; }
+    intervals++;
+    // Minute boundaries also handle half-hour timezones and DST transitions.
+    for (let t=previous; t<current;) {
+      const end = Math.min(current, (Math.floor(t/60)+1)*60);
+      const seconds = end-t;
+      const cell = cells[new Date(t*1000).getHours()];
+      cell.posts += delta*seconds/duration;
+      cell.seconds += seconds;
+      t = end;
+    }
+  }
+  const seconds = cells.reduce((sum, cell) => sum+cell.seconds, 0);
+  const posts = cells.reduce((sum, cell) => sum+cell.posts, 0);
+  return {cells, rejected, intervals, seconds, rate: seconds ? posts*3600/seconds : null};
+}
+function normalizedActivity(samples) {
+  const result = activity(samples);
+  const rates = result.cells.map(cell => cell.seconds ? cell.posts*3600/cell.seconds : null);
+  const relative = rates.map(rate => rate !== null && result.rate > 0 ? rate/result.rate : null);
+  return {...result, rates, relative};
+}
+function activitySegments(values) {
+  const segments = [];
+  let segment = [];
+  values.forEach((value,hour) => {
+    if (value === null) {
+      if (segment.length) segments.push(segment);
+      segment = [];
+    } else segment.push({hour,value});
+  });
+  if (segment.length) segments.push(segment);
+  return segments;
+}
+function mergeTrends(servers) {
+  const merged = new Map();
+  servers.forEach((server,i) => {
+    if (server.trends_error) return;
+    const seen = new Set();
+    (server.tags || []).forEach((tag,rank) => {
+      const key = tag.name.normalize('NFC').toLowerCase();
+      if (seen.has(key)) return;
+      seen.add(key);
+      if (!merged.has(key)) merged.set(key,{name:tag.name,entries:[]});
+      merged.get(key).entries.push({tag,server,i,rank});
+    });
+  });
+  const meanRank = tag => tag.entries.reduce((sum,entry) => sum+entry.rank,0)/tag.entries.length;
+  return [...merged.values()].sort((a,b) => b.entries.length-a.entries.length || meanRank(a)-meanRank(b) || a.name.localeCompare(b.name));
+}
+function warning(parent,text) { parent.append(element('p','error',text)); }
+function renderActivity() {
+  const series = data.servers.map(server => normalizedActivity(server.samples));
+  const chart = document.getElementById('activity');
+  const chartLeft=43, chartRight=903, chartTop=22, chartBottom=185;
+  const maximum = Math.max(2,...series.flatMap(result => result.relative.filter(value => value !== null)));
+  const upper = Math.ceil(maximum);
+  const X = hour => chartLeft+hour/23*(chartRight-chartLeft);
+  const Y = value => chartBottom-value/upper*(chartBottom-chartTop);
+  const ticks = [...new Set([0,1,upper/2,upper])].sort((a,b) => a-b);
+  for (const value of ticks) {
+    chart.append(svgElement('line',{x1:chartLeft,y1:Y(value),x2:chartRight,y2:Y(value),stroke:value===1?'#bdcfc3':'#e5e9e0','stroke-dasharray':value===1?'4 5':'none'}));
+    chart.append(svgElement('text',{x:chartLeft-12,y:Y(value)+4,'text-anchor':'end',fill:'#677871','font-size':10},numbers.format(value)+'×'));
+  }
+  for (const hour of [0,4,8,12,16,20,23]) chart.append(svgElement('text',{x:X(hour),y:208,'text-anchor':'middle',fill:'#677871','font-size':10},String(hour).padStart(2,'0')+':00'));
+  data.servers.forEach((server,i) => {
+    const result = series[i];
+    for (const segment of activitySegments(result.relative)) {
+      if (segment.length > 1) chart.append(svgElement('polyline',{points:segment.map(point => X(point.hour)+','+Y(point.value)).join(' '),fill:'none',stroke:colors[i],'stroke-width':2.5,'stroke-dasharray':dashes[i],'stroke-linejoin':'round','stroke-linecap':'round'}));
+      for (const {hour,value} of segment) {
+        const label = `${server.name}, ${String(hour).padStart(2,'0')}:00: ${ratesFormat.format(result.rates[hour])} posts/hour, ${numbers.format(value)}× observed average; ${numbers.format(result.cells[hour].seconds/3600)} hours observed`;
+        const dot = svgElement('circle',{cx:X(hour),cy:Y(value),r:3.5,fill:colors[i],stroke:'#fffefa','stroke-width':1,tabindex:0,class:'point','aria-label':label});
+        dot.append(svgElement('title',{},label));
+        chart.append(dot);
+      }
+    }
+    const legend = element('span','',server.name);
+    legend.style.color = colors[i];
+    const swatch = element('i','swatch');
+    swatch.style.borderTopStyle = i === 1 ? 'dashed' : i === 2 ? 'dotted' : 'solid';
+    legend.prepend(swatch);
+    document.getElementById('legend').append(legend);
+    if (server.activity_error) warning(document.getElementById('activity-errors'),`${server.name}: ${server.activity_error}. Prior activity observations are retained.`);
+    const coverage = element('div','coverage-row');
+    let status = result.rate === null ? 'No valid intervals yet' : result.rate === 0 ? 'No posts observed; cannot normalize' : ratesFormat.format(result.rate)+' posts/hour on average';
+    status += ` · ${numbers.format(result.seconds/3600)} hours observed · ${server.samples.length} samples`;
+    if (result.rejected) status += ` · ${result.rejected} gaps/counter decreases excluded`;
+    if (server.samples.length) status += ' · last sample '+new Date(server.samples[server.samples.length-1][0]*1000).toLocaleString();
+    coverage.append(element('span','',server.name),element('span','',status));
+    document.getElementById('coverage').append(coverage);
+  });
+  const ready = series.every(result => result.seconds >= 86400 && result.relative.every(value => value !== null));
+  document.getElementById('activity-state').textContent = !ready ? 'Collecting data' : series.every(result => result.seconds >= 7*86400) ? 'Observed activity' : 'Early sample';
+  document.getElementById('activity-note').textContent = `Last ${data.window_days} days of observations. `+(!ready ? 'Still collecting: only measured hours are plotted; gaps are not zeros. Servers with no observed posts cannot be normalized.' : 'Each point is a time-weighted hourly rate divided by that server’s observed average. Small communities may remain noisy.');
+}
+function sparkline(history,color) {
+  const svg = svgElement('svg',{viewBox:'0 0 100 24',class:'spark',role:'img','aria-label':'Daily uses, oldest first: '+history.map(item=>item.uses).join(', ')});
+  const maximum = Math.max(1,...history.map(item=>item.uses));
+  svg.append(svgElement('polyline',{points:history.map((item,i)=>(2+i*96/6)+','+(22-item.uses/maximum*19)).join(' '),fill:'none',stroke:color,'stroke-width':1.8}));
+  svg.append(svgElement('title',{},history.map(item => `${new Date(item.day*1000).toISOString().slice(0,10)} UTC: ${integers.format(item.uses)} uses, ~${integers.format(item.accounts)} accounts`).join('\n')));
+  return svg;
+}
+function renderTrends() {
+  const tags = mergeTrends(data.servers);
+  const list = document.getElementById('tags');
+  for (const server of data.servers) {
+    if (server.trends_error) warning(document.getElementById('trends-errors'),`${server.name}: trends unavailable (${server.trends_error}). Its trends are excluded from this snapshot.`);
+  }
+  if (!tags.length) list.append(element('p','empty',data.servers.every(server=>server.trends_error) ? 'Trending data is unavailable right now.' : 'No trending tags right now. That’s normal—especially on smaller servers.'));
+  tags.forEach((tag,index) => {
+    const row = element('details','tag');
+    row.hidden = index >= 10;
+    const summary = element('summary');
+    const name = element('span','name','#'+tag.name);
+    name.title = '#'+tag.name;
+    const badges = element('span','badges');
+    for (const entry of tag.entries) {
+      const badge = element('span','badge '+badgeClasses[entry.i],entry.server.name.split('.')[0]);
+      badge.title = 'Trending on '+entry.server.name;
+      badges.append(badge);
+    }
+    summary.append(name,badges,element('span','open','Usage'));
+    const detail = element('div','tag-detail');
+    for (const entry of tag.entries) {
+      const line = element('div','detail-row');
+      const link = element('a','',entry.server.name);
+      link.href = 'https://'+entry.server.name+'/tags/'+encodeURIComponent(entry.tag.name);
+      link.target = '_blank'; link.rel = 'noopener noreferrer';
+      const total = entry.tag.history.reduce((sum,item)=>sum+item.uses,0);
+      line.append(link,sparkline(entry.tag.history,colors[entry.i]),element('span','',integers.format(total)+' uses'));
+      detail.append(line);
+    }
+    detail.append(element('p','','Seven UTC days, oldest first; today is partial. Each sparkline has its own scale. Counts are per server, not additive.'));
+    row.append(summary,detail); list.append(row);
+  });
+  const button = document.getElementById('more-tags');
+  const updateNote = expanded => {
+    document.getElementById('tag-note').textContent = `Showing ${expanded ? tags.length : Math.min(10,tags.length)} of ${tags.length} distinct tags from the available top-ten lists. Shared trends first, then average API rank—not summed volume. A missing badge only means the tag is not in that server’s fetched list. “Trending” means accelerating usage as seen by each server, not global popularity.`;
+    button.textContent = expanded ? 'Show top 10' : `Show all ${tags.length} tags`;
+    button.setAttribute('aria-expanded',String(expanded));
+  };
+  if (tags.length > 10) {
+    button.hidden = false;
+    button.addEventListener('click',() => {
+      const expanded = button.getAttribute('aria-expanded') !== 'true';
+      [...list.children].forEach((row,index) => { row.hidden = !expanded && index >= 10; });
+      updateNote(expanded);
+    });
+  }
+  updateNote(false);
+}
+const generated = new Date(data.generated_at*1000);
+document.getElementById('snapshot-time').textContent = generated.toLocaleString(undefined,{dateStyle:'medium',timeStyle:'short'});
+const age = Math.max(0,Math.floor((Date.now()-generated.getTime())/60000));
+const ageLabel = document.getElementById('snapshot-age');
+ageLabel.textContent = age > 30 ? `Snapshot is ${age < 1440 ? Math.floor(age/60)+'h '+age%60+'m' : Math.floor(age/1440)+'d'} old · refresh for updates` : 'Latest generated snapshot';
+if (age > 30) ageLabel.classList.add('stale');
+document.getElementById('source-count').textContent = data.servers.length+' communities';
+document.getElementById('zone').textContent = Intl.DateTimeFormat().resolvedOptions().timeZone+' · local hours';
+renderActivity();
+renderTrends();
+</script>
+</body>
+</html>
