@@ -1,0 +1,18 @@
+services:
+  mastodon-stats:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mastodon-stats
+    restart: unless-stopped
+    volumes:
+      - mastodon-stats-data:/data
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.mastodon-stats.rule=Host(`mastodon.datafrosch.fun`)
+      - traefik.http.routers.mastodon-stats.entrypoints=websecure
+      - traefik.http.routers.mastodon-stats.tls.certresolver=letsencrypt
+      - traefik.http.services.mastodon-stats.loadbalancer.server.port=80
+
+volumes:
+  mastodon-stats-data:

@@ -14,3 +14,6 @@ out/
 # Local investigation notes, not application documentation.
 /PROPOSAL.md
 /research/
+
+# Local deployment runbook, not application documentation.
+/docs/
